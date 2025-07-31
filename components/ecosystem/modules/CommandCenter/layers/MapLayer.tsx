@@ -36,7 +36,7 @@ export default function MapLayer({ selectedSite, onSiteSelect }: MapLayerProps) 
   const [hoveredSite, setHoveredSite] = useState<string | null>(null)
   const [showStats, setShowStats] = useState(true)
   
-  const apiKey = process.env.NEXT_PUBLIC_STADIA_MAPS_API_KEY
+  const apiKey = process.env.NEXT_PUBLIC_STADIA_MAPS_API_KEY || 'eb887465-72f0-4e02-9d92-6e68a62c5719'
 
   // Get site statistics
   const stats = getSiteStatistics()

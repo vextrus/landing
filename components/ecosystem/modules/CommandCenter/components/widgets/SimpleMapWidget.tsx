@@ -27,7 +27,7 @@ export default function SimpleMapWidget({ realtimeData }: SimpleMapWidgetProps) 
   const mapRef = useRef<any>(null)
   
   // Get API key
-  const apiKey = process.env.NEXT_PUBLIC_STADIA_MAPS_API_KEY
+  const apiKey = process.env.NEXT_PUBLIC_STADIA_MAPS_API_KEY || 'eb887465-72f0-4e02-9d92-6e68a62c5719'
 
   const getStatusColor = (status: string) => {
     switch(status) {
