@@ -1,0 +1,16 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "regions": ["sin1"],
+  "functions": {
+    "app/page.tsx": {
+      "memory": 1024
+    },
+    "app/roi-calculator/page.tsx": {
+      "memory": 1024
+    }
+  }
+}
