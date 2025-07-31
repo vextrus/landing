@@ -10,7 +10,8 @@ import {
   Brain,
   Eye,
   Sparkles,
-  Mic
+  Mic,
+  X
 } from 'lucide-react'
 import { 
   AnimatedButton
@@ -22,7 +23,11 @@ import BuildingVisualization from './views/BuildingVisualization'
 import VirtualTours from './views/VirtualTours'
 import AILeadIntelligence from './views/AILeadIntelligence'
 
-export default function SalesCRMDashboard() {
+interface SalesCRMDashboardProps {
+  onClose?: () => void
+}
+
+export default function SalesCRMDashboard({ onClose }: SalesCRMDashboardProps) {
   const [activeView, setActiveView] = useState<'pipeline' | 'building' | 'tours' | 'ai-leads'>('pipeline')
 
   return (
@@ -87,6 +92,17 @@ export default function SalesCRMDashboard() {
             <Sparkles className="w-4 h-4" />
             <span>AI Insights</span>
           </AnimatedButton>
+
+          {onClose && (
+            <AnimatedButton
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="p-2 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </AnimatedButton>
+          )}
         </div>
       </motion.div>
 

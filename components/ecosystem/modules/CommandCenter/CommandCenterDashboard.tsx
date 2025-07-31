@@ -13,7 +13,8 @@ import {
   LayoutDashboard,
   Bell,
   Search,
-  Command
+  Command,
+  X
 } from 'lucide-react'
 import { AnimatedButton } from '../../shared/ui'
 import dynamic from 'next/dynamic'
@@ -123,7 +124,11 @@ const navigationItems = [
   }
 ]
 
-export default function CommandCenterDashboard() {
+interface CommandCenterDashboardProps {
+  onClose?: () => void
+}
+
+export default function CommandCenterDashboard({ onClose }: CommandCenterDashboardProps) {
   const [state, setState] = useState<CommandCenterState>({
     activeView: 'dashboard',
     isSearchOpen: false,
@@ -242,6 +247,17 @@ export default function CommandCenterDashboard() {
               <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
             )}
           </AnimatedButton>
+
+          {onClose && (
+            <AnimatedButton
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="p-3 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </AnimatedButton>
+          )}
         </div>
       </motion.div>
 

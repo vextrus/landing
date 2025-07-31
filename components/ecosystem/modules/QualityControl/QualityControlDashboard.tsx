@@ -9,7 +9,8 @@ import {
   FileCheck,
   Wrench,
   Bell,
-  Search
+  Search,
+  X
 } from 'lucide-react'
 import { 
   AnimatedButton
@@ -21,7 +22,11 @@ import RealTimeMonitoring from './views/RealTimeMonitoring'
 import InspectionReports from './views/InspectionReports'
 import PredictiveMaintenance from './views/PredictiveMaintenance'
 
-export default function QualityControlDashboard() {
+interface QualityControlDashboardProps {
+  onClose?: () => void
+}
+
+export default function QualityControlDashboard({ onClose }: QualityControlDashboardProps) {
   const [activeView, setActiveView] = useState<'defects' | 'monitoring' | 'inspection' | 'maintenance'>('defects')
   const [qualityScore] = useState(96.8)
   const [realtimeDefects] = useState(234)
@@ -72,6 +77,17 @@ export default function QualityControlDashboard() {
           <AnimatedButton variant="ghost" size="sm">
             <Search className="w-4 h-4" />
           </AnimatedButton>
+
+          {onClose && (
+            <AnimatedButton
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="p-2 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </AnimatedButton>
+          )}
         </div>
       </motion.div>
 

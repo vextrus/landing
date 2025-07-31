@@ -126,23 +126,76 @@ export default function VextrusEcosystem2D() {
                 transition={{ duration: 0.5 }}
                 className="relative"
               >
-                {/* Main visualization container with modern glass morphism */}
-                <div className="relative bg-slate-900/80 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden min-h-[950px] border border-white/10">
-                  {/* Gradient mesh background */}
+                {/* Main visualization container with enhanced glass morphism */}
+                <div className="relative bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-purple-950/80 backdrop-blur-2xl rounded-3xl shadow-2xl overflow-hidden min-h-[950px] border border-white/5">
+                  {/* Enhanced gradient mesh background */}
                   <div className="absolute inset-0">
-                    <div className="absolute inset-0 bg-gradient-to-br from-purple-50 via-white to-cyan-50 opacity-50" />
+                    <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-slate-900/40 to-cyan-900/20" />
+                    
+                    {/* Animated gradient orbs */}
                     <motion.div
                       className="absolute inset-0"
                       animate={{
                         background: [
-                          'radial-gradient(circle at 0% 0%, rgba(139,92,246,0.1) 0%, transparent 50%)',
-                          'radial-gradient(circle at 100% 100%, rgba(139,92,246,0.1) 0%, transparent 50%)',
-                          'radial-gradient(circle at 0% 100%, rgba(139,92,246,0.1) 0%, transparent 50%)',
-                          'radial-gradient(circle at 100% 0%, rgba(139,92,246,0.1) 0%, transparent 50%)',
-                          'radial-gradient(circle at 0% 0%, rgba(139,92,246,0.1) 0%, transparent 50%)'
+                          'radial-gradient(circle at 0% 0%, rgba(139,92,246,0.15) 0%, transparent 70%)',
+                          'radial-gradient(circle at 100% 100%, rgba(14,165,233,0.15) 0%, transparent 70%)',
+                          'radial-gradient(circle at 0% 100%, rgba(168,85,247,0.15) 0%, transparent 70%)',
+                          'radial-gradient(circle at 100% 0%, rgba(34,211,238,0.15) 0%, transparent 70%)',
+                          'radial-gradient(circle at 0% 0%, rgba(139,92,246,0.15) 0%, transparent 70%)'
                         ]
                       }}
                       transition={{ duration: 20, repeat: Infinity }}
+                    />
+                    
+                    {/* Subtle grid pattern */}
+                    <div className="absolute inset-0 bg-[linear-gradient(to_right,#8b5cf610_1px,transparent_1px),linear-gradient(to_bottom,#8b5cf610_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-20" />
+                    
+                    {/* Floating particles effect */}
+                    <div className="absolute inset-0">
+                      <motion.div
+                        className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400/30 rounded-full blur-sm"
+                        animate={{
+                          y: [-20, 20, -20],
+                          x: [-10, 10, -10],
+                          opacity: [0.3, 0.6, 0.3]
+                        }}
+                        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                      <motion.div
+                        className="absolute top-3/4 right-1/3 w-3 h-3 bg-cyan-400/20 rounded-full blur-sm"
+                        animate={{
+                          y: [20, -20, 20],
+                          x: [10, -10, 10],
+                          opacity: [0.2, 0.5, 0.2]
+                        }}
+                        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                      <motion.div
+                        className="absolute bottom-1/4 left-1/2 w-2 h-2 bg-indigo-400/25 rounded-full blur-sm"
+                        animate={{
+                          y: [-15, 15, -15],
+                          x: [-20, 20, -20],
+                          opacity: [0.25, 0.5, 0.25]
+                        }}
+                        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+                      />
+                    </div>
+                    
+                    {/* Glass shimmer effect */}
+                    <motion.div
+                      className="absolute inset-0 opacity-10"
+                      style={{
+                        background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%)'
+                      }}
+                      animate={{
+                        x: [-1000, 1000]
+                      }}
+                      transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        repeatDelay: 5,
+                        ease: "easeInOut"
+                      }}
                     />
                   </div>
                   
@@ -170,7 +223,7 @@ export default function VextrusEcosystem2D() {
             <Loader2 className="w-8 h-8 animate-spin text-purple-600" />
           </div>
         }>
-          {ModuleComponent && <ModuleComponent />}
+          {ModuleComponent && <ModuleComponent onClose={closeModal} />}
         </Suspense>
       </FullScreenModal>
     </div>

@@ -10,7 +10,8 @@ import {
   BarChart3,
   Bell,
   Search,
-  Settings
+  Settings,
+  X
 } from 'lucide-react'
 import { 
   AnimatedButton
@@ -24,7 +25,11 @@ import BiometricAttendance from './views/BiometricAttendance'
 import SkillsMatrix from './views/SkillsMatrix'
 import PayrollOptimization from './views/PayrollOptimization'
 
-export default function HRWorkforceDashboard() {
+interface HRWorkforceDashboardProps {
+  onClose?: () => void
+}
+
+export default function HRWorkforceDashboard({ onClose }: HRWorkforceDashboardProps) {
   const [activeView, setActiveView] = useState<'analytics' | 'biometric' | 'skills' | 'payroll'>('analytics')
   const [realtimeAttendance, setRealtimeAttendance] = useState(workforce.attendance.today)
 
@@ -154,6 +159,17 @@ export default function HRWorkforceDashboard() {
           <AnimatedButton variant="ghost" size="sm" className="p-3">
             <Settings className="w-5 h-5" />
           </AnimatedButton>
+
+          {onClose && (
+            <AnimatedButton
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="p-3 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </AnimatedButton>
+          )}
         </div>
       </motion.div>
 

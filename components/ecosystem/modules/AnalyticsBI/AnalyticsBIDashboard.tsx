@@ -11,7 +11,8 @@ import {
   Sparkles,
   Search,
   Bell,
-  PieChart
+  PieChart,
+  X
 } from 'lucide-react'
 import { 
   AnimatedButton
@@ -23,7 +24,11 @@ import PredictiveAnalytics from './views/PredictiveAnalytics'
 import MarketIntelligence from './views/MarketIntelligence'
 import CustomReports from './views/CustomReports'
 
-export default function AnalyticsBIDashboard() {
+interface AnalyticsBIDashboardProps {
+  onClose?: () => void
+}
+
+export default function AnalyticsBIDashboard({ onClose }: AnalyticsBIDashboardProps) {
   const [activeView, setActiveView] = useState<'executive' | 'predictive' | 'market' | 'reports'>('executive')
 
   return (
@@ -75,6 +80,17 @@ export default function AnalyticsBIDashboard() {
             <Sparkles className="w-4 h-4" />
             <span>Ask AI</span>
           </AnimatedButton>
+
+          {onClose && (
+            <AnimatedButton
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="p-2 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </AnimatedButton>
+          )}
         </div>
       </motion.div>
 

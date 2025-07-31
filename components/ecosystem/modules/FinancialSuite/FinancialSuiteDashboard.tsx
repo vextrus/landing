@@ -26,7 +26,8 @@ import {
   Bell,
   Wallet,
   Eye,
-  Target
+  Target,
+  X
 } from 'lucide-react'
 import { 
   GlassCard, 
@@ -46,7 +47,11 @@ import CashFlowPredictor from './views/CashFlowPredictor'
 import LivePayments from './views/LivePayments'  
 import AIInsights from './views/AIInsights'
 
-export default function FinancialSuiteDashboard() {
+interface FinancialSuiteDashboardProps {
+  onClose?: () => void
+}
+
+export default function FinancialSuiteDashboard({ onClose }: FinancialSuiteDashboardProps) {
   const [activeView, setActiveView] = useState<'dashboard' | 'predictor' | 'payments' | 'insights'>('dashboard')
   const [realtimeMetrics, setRealtimeMetrics] = useState(financialData.overview)
 
@@ -170,6 +175,17 @@ export default function FinancialSuiteDashboard() {
           <AnimatedButton variant="ghost" size="sm" className="p-3">
             <Settings className="w-5 h-5" />
           </AnimatedButton>
+
+          {onClose && (
+            <AnimatedButton
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="p-3 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </AnimatedButton>
+          )}
         </div>
       </motion.div>
 

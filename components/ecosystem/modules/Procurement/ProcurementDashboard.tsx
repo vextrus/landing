@@ -10,7 +10,8 @@ import {
   Globe,
   Bell,
   Search,
-  Settings
+  Settings,
+  X
 } from 'lucide-react'
 import { 
   AnimatedButton
@@ -23,7 +24,11 @@ import PricePredictor from './views/PricePredictor'
 import BlockchainTracking from './views/BlockchainTracking'
 import AIInsights from './views/AIInsights'
 
-export default function ProcurementDashboard() {
+interface ProcurementDashboardProps {
+  onClose?: () => void
+}
+
+export default function ProcurementDashboard({ onClose }: ProcurementDashboardProps) {
   const [activeView, setActiveView] = useState<'suppliers' | 'prices' | 'blockchain' | 'ai-insights'>('suppliers')
   const [realtimeSuppliers, setRealtimeSuppliers] = useState(suppliers.length)
 
@@ -150,6 +155,17 @@ export default function ProcurementDashboard() {
           <AnimatedButton variant="ghost" size="sm" className="p-3">
             <Settings className="w-5 h-5" />
           </AnimatedButton>
+
+          {onClose && (
+            <AnimatedButton
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="p-3 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </AnimatedButton>
+          )}
         </div>
       </motion.div>
 
