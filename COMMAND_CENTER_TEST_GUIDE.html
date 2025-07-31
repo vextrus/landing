@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Command Center - Testing Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .success { color: #10B981; }
+        .warning { color: #F59E0B; }
+        .error { color: #EF4444; }
+        .code {
+            background: #1F2937;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        h1 { color: #6366F1; }
+        h2 { color: #4B5563; margin-top: 30px; }
+        .step {
+            background: #F3F4F6;
+            padding: 15px;
+            border-left: 4px solid #6366F1;
+            margin: 10px 0;
+        }
+        ul { margin: 10px 0; }
+        li { margin: 5px 0; }
+    </style>
+</head>
+<body>
+    <h1>🚀 AI Command Center - Complete Testing Guide</h1>
+    
+    <div class="card">
+        <h2>✅ What's Been Fixed</h2>
+        <ul>
+            <li class="success">✓ Command Center opens directly in full-screen modal</li>
+            <li class="success">✓ Removed all dark mode - clean light theme only</li>
+            <li class="success">✓ Fixed sidebar navigation z-index (z-50)</li>
+            <li class="success">✓ Added console logging for debugging</li>
+            <li class="success">✓ Fixed syntax errors and build issues</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>🧪 Testing Instructions</h2>
+        
+        <div class="step">
+            <strong>Step 1: Start Development Server</strong>
+            <div class="code">npm run dev</div>
+            <p>Wait for "Ready in Xs" message</p>
+        </div>
+
+        <div class="step">
+            <strong>Step 2: Open Browser Console</strong>
+            <p>Press F12 or Right-click → Inspect → Console tab</p>
+            <p>This will show debug logs for navigation clicks</p>
+        </div>
+
+        <div class="step">
+            <strong>Step 3: Navigate to Command Center</strong>
+            <ol>
+                <li>Go to <a href="http://localhost:3000">http://localhost:3000</a></li>
+                <li>Scroll down to "The Vextrus Ecosystem" section</li>
+                <li>Click on the central purple/indigo "AI Command Center" module</li>
+                <li>Modal should open immediately with loading animation</li>
+            </ol>
+        </div>
+
+        <div class="step">
+            <strong>Step 4: Test Sidebar Navigation</strong>
+            <p>In the console, you should see logs when clicking sidebar items:</p>
+            <div class="code">
+Sidebar: Clicked on sites
+CommandCenter: Changing view to sites
+CommandCenter: Current view is sites
+            </div>
+            <p>Click each sidebar item and verify:</p>
+            <ul>
+                <li>Dashboard - Shows grid of widgets</li>
+                <li>Sites - Shows map (check if it loads)</li>
+                <li>Timeline - Shows timeline view</li>
+                <li>AI Insights - Shows AI predictions</li>
+                <li>Analytics - Shows analytics dashboard</li>
+                <li>Settings - Shows settings page</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <strong>Step 5: Check Map Loading</strong>
+            <p>When on Sites view, check console for:</p>
+            <div class="code">
+MapLayer: Initializing map with API key: Present
+            </div>
+            <p>If you see "Missing" or any errors, the API key isn't loading properly.</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🔍 What to Look For</h2>
+        
+        <h3 class="success">✅ Working Correctly:</h3>
+        <ul>
+            <li>Clean light theme throughout (no dark elements)</li>
+            <li>Sidebar clicks change the main content area</li>
+            <li>Console shows navigation logs</li>
+            <li>Map loads with Dhaka construction sites</li>
+            <li>All animations smooth (60fps)</li>
+            <li>ESC key or X button closes modal</li>
+        </ul>
+
+        <h3 class="error">❌ Known Issues to Check:</h3>
+        <ul>
+            <li>If sidebar clicks don't work: Check console for errors</li>
+            <li>If map doesn't load: Check for Stadia Maps API errors</li>
+            <li>If views don't change: Look for JavaScript errors</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>🛠️ Troubleshooting</h2>
+        
+        <h3>If Sidebar Not Working:</h3>
+        <ul>
+            <li>Check browser console for JavaScript errors</li>
+            <li>Verify clicks are being logged</li>
+            <li>Try refreshing the page</li>
+            <li>Clear browser cache (Ctrl+Shift+Delete)</li>
+        </ul>
+
+        <h3>If Map Not Loading:</h3>
+        <ul>
+            <li>Check .env.local file exists with API key</li>
+            <li>Restart dev server after adding .env.local</li>
+            <li>Check network tab for failed requests to Stadia Maps</li>
+            <li>Look for CORS errors in console</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>📊 Expected Console Output</h2>
+        <div class="code">
+// When opening Command Center:
+CommandCenter: Current view is dashboard
+
+// When clicking sidebar items:
+Sidebar: Clicked on sites
+CommandCenter: Changing view to sites
+CommandCenter: Current view is sites
+
+// When map loads:
+MapLayer: Initializing map with API key: Present
+
+// Real-time data updates every 2 seconds
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🎯 Next Steps</h2>
+        <p>After verifying all fixes work:</p>
+        <ol>
+            <li>Phase 4: Implement AI natural language interface</li>
+            <li>Phase 5: Complete all remaining views</li>
+            <li>Phase 6: Performance optimization</li>
+        </ol>
+    </div>
+
+    <div class="card" style="background: #FEF3C7; border-left: 4px solid #F59E0B;">
+        <h3 class="warning">⚠️ Important Notes</h3>
+        <ul>
+            <li>Make sure npm run dev is running</li>
+            <li>Use Chrome/Edge for best compatibility</li>
+            <li>Keep browser console open to see logs</li>
+            <li>If changes don't appear, hard refresh (Ctrl+F5)</li>
+        </ul>
+    </div>
+</body>
+</html>
