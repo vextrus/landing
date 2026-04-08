@@ -1,0 +1,453 @@
+@import 'tailwindcss';
+
+/* ═══════════════════════════════════════════
+   Vextrus Landing Page — Design System
+   "The Blueprint Awakens"
+   ═══════════════════════════════════════════ */
+
+@layer base {
+  :root {
+    /* Canvas */
+    --canvas: oklch(0.12 0.01 270);
+    --canvas-raised: oklch(0.16 0.012 270);
+    --canvas-deep: oklch(0.09 0.008 270);
+    --canvas-warm: oklch(0.96 0.008 70);
+    --canvas-warm-raised: oklch(0.99 0.004 70);
+
+    /* Text */
+    --text-primary: oklch(0.93 0.005 70);
+    --text-secondary: oklch(0.65 0.01 70);
+    --text-tertiary: oklch(0.45 0.008 70);
+    --text-dark: oklch(0.18 0.02 70);
+    --text-dark-secondary: oklch(0.45 0.02 70);
+
+    /* Accent — Warm Copper */
+    --accent: oklch(0.72 0.15 44);
+    --accent-hover: oklch(0.78 0.16 44);
+    --accent-muted: oklch(0.72 0.15 44 / 0.15);
+    --accent-glow: oklch(0.72 0.15 44 / 0.25);
+
+    /* Indigo */
+    --indigo: oklch(0.55 0.14 275);
+    --indigo-light: oklch(0.65 0.14 275);
+    --indigo-glow: oklch(0.55 0.14 275 / 0.20);
+
+    /* Semantic */
+    --success: oklch(0.62 0.14 155);
+    --success-muted: oklch(0.62 0.14 155 / 0.15);
+
+    /* Borders */
+    --border-subtle: oklch(1 0 0 / 0.08);
+    --border-medium: oklch(1 0 0 / 0.12);
+    --border-warm: oklch(0.85 0.008 70);
+
+    /* Easing */
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* Layout */
+    --section-py: clamp(5rem, 8vh, 10rem);
+    --grid-gutter: clamp(1rem, 3vw, 3rem);
+    --header-height: 64px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: var(--font-body), system-ui, sans-serif;
+    background: var(--canvas);
+    color: var(--text-primary);
+  }
+
+  ::selection {
+    background: oklch(0.72 0.15 44 / 0.30);
+    color: oklch(0.98 0.005 70);
+  }
+}
+
+/* ═══ Gradient Text ═══ */
+
+.text-gradient {
+  background: linear-gradient(135deg, oklch(0.65 0.14 275), oklch(0.75 0.15 44));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-accent {
+  background: linear-gradient(135deg, oklch(0.55 0.14 275) 0%, oklch(0.72 0.15 44) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ═══ Structural Grid Lines (Blueprint) ═══ */
+
+.bg-grid-lines {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      oklch(1 0 0 / 0.03) 0 1px,
+      transparent 1px 120px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      oklch(1 0 0 / 0.03) 0 1px,
+      transparent 1px 120px
+    );
+}
+
+.bg-grid-lines-subtle {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      oklch(1 0 0 / 0.02) 0 1px,
+      transparent 1px 120px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      oklch(1 0 0 / 0.02) 0 1px,
+      transparent 1px 120px
+    );
+}
+
+/* ═══ Noise Texture Overlay ═══ */
+
+.noise-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ═══ Atmospheric Backgrounds ═══ */
+
+.bg-atmospheric {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, oklch(0.55 0.10 275 / 0.15), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 70%, oklch(0.55 0.10 44 / 0.10), transparent),
+    var(--canvas);
+}
+
+.bg-atmospheric-intense {
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 30%, oklch(0.55 0.10 275 / 0.25), transparent),
+    radial-gradient(ellipse 60% 50% at 80% 70%, oklch(0.55 0.10 44 / 0.20), transparent),
+    radial-gradient(ellipse 40% 40% at 50% 60%, oklch(0.72 0.15 44 / 0.10), transparent),
+    var(--canvas);
+}
+
+.bg-hero {
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 25%, oklch(0.55 0.10 275 / 0.15), transparent),
+    radial-gradient(ellipse 50% 40% at 85% 75%, oklch(0.55 0.10 44 / 0.10), transparent),
+    var(--canvas);
+}
+
+/* ═══ Glassmorphism ═══ */
+
+.glass-header {
+  backdrop-filter: blur(16px) saturate(180%);
+  background: oklch(0.12 0.01 270 / 0.90);
+}
+
+.glass-header-scrolled {
+  backdrop-filter: blur(20px) saturate(200%);
+  background: oklch(0.12 0.01 270 / 0.95);
+  box-shadow:
+    0 1px 0 oklch(1 0 0 / 0.06),
+    0 4px 16px oklch(0 0 0 / 0.20);
+}
+
+/* ═══ Scroll Progress Bar ═══ */
+
+.scroll-progress {
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--indigo), var(--accent));
+  height: 2px;
+  transform: scaleX(0);
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: scroll-progress-fill linear;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes scroll-progress-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ═══ Constellation Animations ═══ */
+
+@keyframes node-appear {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.constellation-node {
+  animation: node-appear 500ms var(--ease-out-expo) both;
+}
+
+@keyframes draw-connection {
+  from { stroke-dashoffset: var(--line-length, 200); }
+  to { stroke-dashoffset: 0; }
+}
+
+.constellation-line {
+  animation: draw-connection 800ms var(--ease-out-quart) both;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.15; }
+}
+
+.connection-pulse {
+  animation: pulse-subtle 4s ease-in-out infinite;
+}
+
+/* ═══ Scroll Reveal ═══ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-out-expo);
+}
+
+.reveal-fade.visible {
+  opacity: 1;
+}
+
+/* ═══ Number Counter ═══ */
+
+@property --num {
+  syntax: '<integer>';
+  initial-value: 0;
+  inherits: false;
+}
+
+.counter {
+  transition: --num 1.5s var(--ease-out-expo);
+  counter-reset: num var(--num);
+}
+
+.counter::after {
+  content: counter(num);
+}
+
+/* ═══ CTA Shimmer ═══ */
+
+@keyframes shimmer {
+  from { background-position: -200% center; }
+  to { background-position: 200% center; }
+}
+
+.cta-shimmer {
+  background-size: 200% 100%;
+  transition: box-shadow 300ms var(--ease-smooth);
+}
+
+.cta-shimmer:hover {
+  background-image: linear-gradient(
+    110deg,
+    oklch(0.72 0.15 44) 0%,
+    oklch(0.82 0.16 44) 45%,
+    oklch(0.72 0.15 44) 55%,
+    oklch(0.72 0.15 44) 100%
+  );
+  animation: shimmer 2s linear infinite;
+  box-shadow: 0 0 28px oklch(0.72 0.15 44 / 0.30);
+}
+
+/* ═══ Flow Arrow Draw ═══ */
+
+@keyframes draw-arrow {
+  from { stroke-dashoffset: var(--arrow-length, 60); }
+  to { stroke-dashoffset: 0; }
+}
+
+.flow-arrow {
+  animation: draw-arrow 600ms var(--ease-out-quart) both;
+}
+
+/* ═══ Bar Chart Animation ═══ */
+
+@keyframes bar-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.bar-animated {
+  transform-origin: left;
+  animation: bar-grow 800ms var(--ease-out-expo) both;
+}
+
+/* ═══ Horizontal Bar Growth (Anthropic Chart) ═══ */
+
+@keyframes bar-grow-horizontal {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+.bar-horizontal {
+  transform-origin: left;
+  animation: bar-grow-horizontal 800ms var(--ease-out-expo) both;
+}
+
+/* ═══ Fade Expand (Module hover features) ═══ */
+
+@keyframes fade-expand {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 120px;
+  }
+}
+
+/* ═══ Product UI Mockup ═══ */
+
+.product-mockup-frame {
+  border: 1px solid oklch(1 0 0 / 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  background: oklch(0.14 0.01 270 / 0.8);
+  transform: perspective(800px) rotateY(-4deg) rotateX(2deg);
+  box-shadow: 20px 20px 60px oklch(0 0 0 / 0.3);
+  transition: transform 400ms var(--ease-smooth);
+}
+
+@media (max-width: 767px) {
+  .product-mockup-frame {
+    transform: none;
+    box-shadow: 0 8px 32px oklch(0 0 0 / 0.2);
+  }
+}
+
+/* ═══ AI Breathing Pulse ═══ */
+
+@keyframes ai-breathe {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.ai-pulse-dot {
+  animation: ai-breathe 2.5s ease-in-out infinite;
+}
+
+/* ═══ Learning Loop Arrow ═══ */
+
+@keyframes draw-loop-arrow {
+  from { stroke-dashoffset: var(--arrow-length, 40); }
+  to { stroke-dashoffset: 0; }
+}
+
+.loop-arrow {
+  animation: draw-loop-arrow 600ms var(--ease-out-quart) both;
+}
+
+/* ═══ Confidence Meter ═══ */
+
+@keyframes meter-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(var(--meter-value, 0.93)); }
+}
+
+.confidence-meter {
+  transform-origin: left;
+  animation: meter-fill 1s var(--ease-out-expo) both;
+}
+
+/* ═══ Section Divider ═══ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    oklch(1 0 0 / 0.06) 20%,
+    oklch(0.72 0.15 44 / 0.12) 50%,
+    oklch(1 0 0 / 0.06) 80%,
+    transparent 100%
+  );
+}
+
+/* ═══ Scroll Indicator ═══ */
+
+@keyframes scroll-hint {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(6px); opacity: 0.8; }
+}
+
+.scroll-indicator {
+  animation: scroll-hint 2.5s ease-in-out infinite;
+}
+
+/* ═══ Mobile Menu Animation ═══ */
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ═══ Reduced Motion ═══ */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal, .reveal-fade {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}

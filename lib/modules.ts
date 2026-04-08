@@ -1,0 +1,310 @@
+export type ModuleSize = 'large' | 'medium' | 'small'
+
+export interface Module {
+  id: string
+  name: string
+  description: string
+  hue: number
+  icon: string
+  size: ModuleSize
+  features?: string[]
+  hoverFeatures?: string[]
+}
+
+export const modules: Module[] = [
+  {
+    id: 'ai-platform',
+    name: 'AI Platform',
+    description: '20 agents. 4-Eyes Principle. Human-approved AI.',
+    hue: 285,
+    icon: 'Bot',
+    size: 'large',
+    features: [
+      '4-Eyes Principle governance',
+      'Vector memory (pgvector)',
+      'Multi-model: Gemini, Claude',
+    ],
+    hoverFeatures: [
+      '4-Eyes Principle governance',
+      'Agent memory with pgvector',
+      'Multi-model: Gemini, Claude, GPT-4',
+      '20 agents, targeting 60+',
+    ],
+  },
+  {
+    id: 'real-estate',
+    name: 'Real Estate',
+    description: 'Land to handover. 40+ entities. Complete lifecycle.',
+    hue: 44,
+    icon: 'Building2',
+    size: 'large',
+    features: [
+      '16 lead sources, 8-stage pipeline',
+      'Booking \u2192 Handover workflow',
+      'Snag management & CRM',
+    ],
+    hoverFeatures: [
+      'Land acquisition to handover',
+      '40+ entities across lifecycle',
+      '16 lead sources, 8-stage pipeline',
+      'Snag management & CRM',
+    ],
+  },
+  {
+    id: 'general-ledger',
+    name: 'General Ledger',
+    description: 'Double-entry accounting. Multi-currency. Bangladesh fiscal year.',
+    hue: 245,
+    icon: 'BookOpen',
+    size: 'medium',
+    hoverFeatures: [
+      'Double-entry with auto-balancing',
+      'Multi-currency + BDT native',
+      'Bangladesh fiscal year (Jul-Jun)',
+      'AI-suggested journal entries',
+    ],
+  },
+  {
+    id: 'accounts-payable',
+    name: 'Accounts Payable',
+    description: 'Vendor invoices. 3-way matching. AI-powered OCR.',
+    hue: 49,
+    icon: 'CreditCard',
+    size: 'medium',
+    hoverFeatures: [
+      '3-way matching automation',
+      'AI-powered invoice OCR',
+      'Vendor payment scheduling',
+      'Import LC tracking',
+    ],
+  },
+  {
+    id: 'accounts-receivable',
+    name: 'Accounts Receivable',
+    description: 'Customer billing. Progress invoicing. Collection automation.',
+    hue: 170,
+    icon: 'Receipt',
+    size: 'medium',
+    hoverFeatures: [
+      'Progress invoicing by milestone',
+      'Collection automation & reminders',
+      'Customer aging reports',
+      'bKash/Nagad integration',
+    ],
+  },
+  {
+    id: 'tax-management',
+    name: 'Tax Management',
+    description: 'VAT, TDS, AIT, VDS. Mushak forms. NBR-ready.',
+    hue: 310,
+    icon: 'Calculator',
+    size: 'medium',
+    hoverFeatures: [
+      'VAT 15%, TDS 2-10%, AIT 5%',
+      'Auto-generated Mushak forms',
+      'NBR e-filing ready',
+      'VDS withholding automation',
+    ],
+  },
+  {
+    id: 'project-foundation',
+    name: 'Projects',
+    description: 'Projects, sites, teams, documents. Multi-phase lifecycle.',
+    hue: 140,
+    icon: 'FolderKanban',
+    size: 'medium',
+    hoverFeatures: [
+      'Multi-phase project lifecycle',
+      'Site & location management',
+      'Team assignment & permissions',
+      'Document management',
+    ],
+  },
+  {
+    id: 'project-planning',
+    name: 'Planning',
+    description: 'WBS, milestones, dependencies. Critical path analysis.',
+    hue: 200,
+    icon: 'GanttChart',
+    size: 'small',
+    hoverFeatures: [
+      'WBS & milestone tracking',
+      'Dependency management',
+      'Critical path analysis',
+      'Gantt chart visualization',
+    ],
+  },
+  {
+    id: 'project-costing',
+    name: 'Costing',
+    description: 'BOQ, rate analysis, quantity surveys. Cost control.',
+    hue: 95,
+    icon: 'FileSpreadsheet',
+    size: 'small',
+    hoverFeatures: [
+      'BOQ & rate analysis',
+      'Quantity survey tracking',
+      'Budget vs actual monitoring',
+      'Cost variance alerts',
+    ],
+  },
+  {
+    id: 'project-execution',
+    name: 'Execution',
+    description: 'Daily progress, photo evidence, quality inspection.',
+    hue: 330,
+    icon: 'Activity',
+    size: 'small',
+    hoverFeatures: [
+      'Daily progress reporting',
+      'Photo evidence capture',
+      'Quality inspection checklists',
+      'Weather delay tracking',
+    ],
+  },
+  {
+    id: 'procurement',
+    name: 'Procurement',
+    description: 'Requisitions, POs, GRNs, RFQs. Import LC tracking.',
+    hue: 30,
+    icon: 'ShoppingCart',
+    size: 'small',
+    hoverFeatures: [
+      'Requisition to PO workflow',
+      'RFQ & vendor comparison',
+      'GRN & 3-way matching',
+      'Import LC tracking',
+    ],
+  },
+  {
+    id: 'inventory',
+    name: 'Inventory',
+    description: 'Warehouses, stock, transfers, counts. ABC classification.',
+    hue: 120,
+    icon: 'Package',
+    size: 'small',
+    hoverFeatures: [
+      'Multi-warehouse management',
+      'Stock transfer & adjustment',
+      'ABC classification',
+      'Reorder point alerts',
+    ],
+  },
+  {
+    id: 'hr-payroll',
+    name: 'HR & Payroll',
+    description: 'Employees, attendance, payroll, tax, loans. BLA compliant.',
+    hue: 180,
+    icon: 'Users',
+    size: 'small',
+    hoverFeatures: [
+      'Employee lifecycle management',
+      'Attendance & leave tracking',
+      'BLA-compliant payroll',
+      'Tax & loan deductions',
+    ],
+  },
+  {
+    id: 'subcontractor-equipment',
+    name: 'Subcontractors & Equipment',
+    description: 'Work orders, running bills, fleet, maintenance, fuel logs.',
+    hue: 60,
+    icon: 'HardHat',
+    size: 'small',
+    hoverFeatures: [
+      'Work orders & running bills',
+      'Equipment fleet management',
+      'Maintenance scheduling',
+      'Fuel log tracking',
+    ],
+  },
+  {
+    id: 'safety-compliance',
+    name: 'Safety & Compliance',
+    description: 'Incidents, inspections, permits, PPE, training. BNBC.',
+    hue: 0,
+    icon: 'ShieldAlert',
+    size: 'small',
+    hoverFeatures: [
+      'Incident reporting & investigation',
+      'Safety inspection checklists',
+      'Permit management',
+      'PPE tracking & BNBC compliance',
+    ],
+  },
+  {
+    id: 'workflow',
+    name: 'Workflow',
+    description: 'Custom approval chains. SLA escalation. Parallel steps.',
+    hue: 215,
+    icon: 'GitBranch',
+    size: 'small',
+    hoverFeatures: [
+      'Custom approval chains',
+      'Multi-level escalation',
+      'SLA monitoring',
+      'Parallel approval steps',
+    ],
+  },
+  {
+    id: 'identity',
+    name: 'Identity & Auth',
+    description: 'JWT auth, 901 permissions, RLS multi-tenancy.',
+    hue: 275,
+    icon: 'ShieldCheck',
+    size: 'small',
+    hoverFeatures: [
+      'JWT + refresh token auth',
+      '901 granular permissions',
+      'Row-Level Security (RLS)',
+      'Multi-tenant isolation',
+    ],
+  },
+  {
+    id: 'organization',
+    name: 'Organization',
+    description: 'Departments, cost centers, locations. Hierarchy.',
+    hue: 150,
+    icon: 'Building',
+    size: 'small',
+    hoverFeatures: [
+      'Department hierarchy',
+      'Cost center management',
+      'Location & division setup',
+      'Fiscal year configuration',
+    ],
+  },
+  {
+    id: 'notification',
+    name: 'Notification',
+    description: 'Email, SMS, WhatsApp, in-app, push. Template engine.',
+    hue: 70,
+    icon: 'Bell',
+    size: 'small',
+    hoverFeatures: [
+      'Email, SMS, WhatsApp, push',
+      'In-app notification center',
+      'Template engine with variables',
+      'Delivery tracking & retry',
+    ],
+  },
+]
+
+export const moduleDomains = [
+  {
+    name: 'Financial',
+    ids: ['general-ledger', 'accounts-payable', 'accounts-receivable', 'tax-management'],
+  },
+  {
+    name: 'Project',
+    ids: ['project-foundation', 'project-planning', 'project-costing', 'project-execution'],
+  },
+  {
+    name: 'Operations',
+    ids: ['procurement', 'inventory', 'subcontractor-equipment', 'safety-compliance'],
+  },
+  { name: 'People', ids: ['hr-payroll'] },
+  { name: 'Real Estate', ids: ['real-estate'] },
+  { name: 'Intelligence', ids: ['ai-platform'] },
+  { name: 'System', ids: ['identity', 'organization', 'workflow', 'notification'] },
+] as const
