@@ -1,0 +1,30 @@
+# Vextrus
+
+> Vextrus is an AI-native ERP for Bangladesh construction & real estate — an AI workforce of agents that price drawings, catch cost leakage, and chase cash, writing to your books only when a named person approves.
+
+## Pages
+
+- [Home](https://www.vextrus.com/): The category overview — VextrusAI as your AI workforce for construction & real estate, with the 20-module ERP as the engine underneath. Path: /
+- [The Workforce](https://www.vextrus.com/workforce): The 23 agents — 1 shipped flagship (the Drawing Estimator), 13 roadmap agents that elevate everyday work, and 9 advisory agents embedded across the modules. Path: /workforce
+- [Solutions](https://www.vextrus.com/solutions): Outcome-led bundles that map agents and modules to real construction & real-estate workflows. Path: /solutions
+- [The Engine](https://www.vextrus.com/engine): The 20-module ERP foundation the agents run on — finance, projects, procurement, inventory, HR, and more. Path: /engine
+- [Why Vextrus](https://www.vextrus.com/why): The case for an AI-native, approval-gated ERP — agents propose, a named person approves, and only then does anything write to the books (the 4-Eyes mechanism). Path: /why
+- [Bangladesh-Native](https://www.vextrus.com/bangladesh): Built for Bangladesh from the ground up — NBR Mushak VAT, RAJUK approvals, BBS bar-bending standards, the July–June fiscal year, and money in lakh and crore. Path: /bangladesh
+- [The Estimator](https://www.vextrus.com/estimator): The shipped flagship agent — turns construction drawings (DWG) into a Bill of Quantities and Bar Bending Schedule, then into the ERP. Path: /estimator
+- [Contact](https://www.vextrus.com/contact): Book a demo or reach the team. Path: /contact
+
+## About
+
+Vextrus is an AI-native, multi-tenant ERP for Bangladesh construction & real estate. The product leads with VextrusAI — an AI workforce of 23 agents (1 shipped flagship: the Drawing Estimator; 13 roadmap agents that elevate everyday work; 9 advisory agents embedded across the modules) — running on a 20-module ERP engine.
+
+Agents never write to the books on their own. Every write-back runs through a 4-Eyes, approval-gated mechanism: an agent proposes a change via a registered command, and a named person must approve before anything is committed.
+
+Vextrus is Bangladesh-native: it is built for NBR Mushak (VAT), RAJUK approvals, and BBS (Bar Bending Schedule) standards, defaults to the July–June fiscal year, and displays money in lakh and crore (never Western K/M notation).
+
+Vextrus is at the pre-first-customer, market-entry stage: the product is complete and demo-proven, but there is no live customer yet. There are no customer references, testimonials, ratings, or published prices.
+
+- Company: Vextrus Limited
+- Country: Bangladesh
+- Category: AI-native ERP
+- Industry: construction & real estate
+- Contact: ceo@vextrus.com

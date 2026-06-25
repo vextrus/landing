@@ -1,0 +1,38 @@
+{
+  "$schema": "https://www.vextrus.com/agents.json",
+  "version": "1.0",
+  "site": {
+    "name": "Vextrus",
+    "url": "https://www.vextrus.com",
+    "purpose": "Marketing site for VextrusAI — an AI-native ERP for Bangladesh construction & real estate, led by an AI workforce of agents running on a 20-module engine.",
+    "language": "en"
+  },
+  "product": {
+    "name": "Vextrus",
+    "legalName": "Vextrus Limited",
+    "category": "AI-native ERP",
+    "industry": "construction & real estate, Bangladesh",
+    "description": "An AI-native, multi-tenant ERP for Bangladesh construction & real estate. VextrusAI is an AI workforce of 23 agents (1 shipped flagship — the Drawing Estimator; 13 roadmap agents; 9 advisory agents) running on a 20-module ERP engine. Agents write to the books only through a 4-Eyes, approval-gated mechanism: an agent proposes a change via a registered command, and a named person must approve before it is committed.",
+    "bangladeshNative": [
+      "NBR Mushak (VAT)",
+      "RAJUK approvals",
+      "BBS Bar Bending Schedule",
+      "July–June fiscal year",
+      "money in lakh and crore"
+    ]
+  },
+  "pages": [
+    { "title": "Home", "path": "/" },
+    { "title": "The Workforce", "path": "/workforce" },
+    { "title": "Solutions", "path": "/solutions" },
+    { "title": "The Engine", "path": "/engine" },
+    { "title": "Why Vextrus", "path": "/why" },
+    { "title": "Bangladesh-Native", "path": "/bangladesh" },
+    { "title": "The Estimator", "path": "/estimator" },
+    { "title": "Contact", "path": "/contact" }
+  ],
+  "contact": {
+    "path": "/contact",
+    "email": "ceo@vextrus.com"
+  }
+}
