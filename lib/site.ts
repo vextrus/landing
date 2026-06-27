@@ -5,23 +5,24 @@ export const siteConfig = {
   legalName: 'Vextrus Limited',
   url: 'https://www.vextrus.com',
   email: 'ceo@vextrus.com',
-  // The category line — lead with this everywhere (master spec, Appendix F)
-  tagline: 'Your AI workforce for construction & real estate.',
-  subTagline: 'Agents that do the work; you approve the exceptions.',
+  // The category line — the v3 spine (plain BD-owner English).
+  tagline: 'The AI-native ERP for Bangladesh construction & real estate.',
+  subTagline: 'One system of record, with an AI workforce that does the work on it.',
   description:
-    'VextrusAI is your AI workforce for Bangladesh construction & real estate. Agents price drawings, catch leakage, and chase cash — writing to your books only when a named person approves. The most intelligent software you’ve ever used.',
+    'Vextrus is the AI-native ERP for Bangladesh construction & real estate — one system of record, with an AI workforce that does the work on it. Starting with the Estimator: a structural drawing becomes a priced BOQ posted to your books with one approval. No agent changes your books on its own — you approve every taka.',
   ogImage: '/opengraph-image',
 } as const
 
 export type NavLink = { label: string; href: string }
 
-// Sticky-nav links (master spec routes). "Book a demo" is rendered as the CTA.
+// Sticky-nav links — the "Engine + Workforce" two-tier IA (spec §3).
+// "Book a call" is rendered separately as the CTA.
 export const navLinks: NavLink[] = [
-  { label: 'Workforce', href: '/workforce' },
+  { label: 'The System', href: '/system' },
+  { label: 'VextrusAI', href: '/ai' },
   { label: 'Solutions', href: '/solutions' },
-  { label: 'The Engine', href: '/engine' },
-  { label: 'Why Vextrus', href: '/why' },
   { label: 'Bangladesh', href: '/bangladesh' },
+  { label: 'Proof', href: '/proof' },
 ]
 
 export const footerNav: {
@@ -31,24 +32,24 @@ export const footerNav: {
   {
     heading: 'Product',
     links: [
-      { label: 'The Workforce', href: '/workforce' },
+      { label: 'The System', href: '/system' },
+      { label: 'VextrusAI', href: '/ai' },
       { label: 'Solutions', href: '/solutions' },
-      { label: 'The Engine', href: '/engine' },
-      { label: 'The Estimator', href: '/estimator' },
+      { label: 'Proof', href: '/proof' },
     ],
   },
   {
     heading: 'Company',
     links: [
-      { label: 'Why Vextrus', href: '/why' },
       { label: 'Bangladesh-Native', href: '/bangladesh' },
+      { label: 'Book a call', href: '/contact' },
       { label: 'Contact', href: '/contact' },
     ],
   },
   {
     heading: 'Surfaces',
     links: [
-      { label: 'Book a demo', href: '/contact' },
+      { label: 'Book a call', href: '/contact' },
       { label: 'app.vextrus.com', href: '#', muted: true },
       { label: 'www.vextrus.com', href: '#', muted: true },
     ],

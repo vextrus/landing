@@ -1,19 +1,17 @@
-'use client'
-
-import { m, useReducedMotion } from 'motion/react'
 import type { ReactNode } from 'react'
 
 /**
- * Scroll-reveal: opacity 0→1 + translateY(18px)→0 over 0.8s expo-out, once.
- * Stagger siblings by passing an increasing `delay`. Fully respects
- * prefers-reduced-motion (renders static, no transform).
+ * Scroll-reveal, the calm way: a CSS-only `.reveal-up` (defined in globals.css).
+ * Visible by DEFAULT (opacity 1) — it only animates opacity/translateY where
+ * `animation-timeline: view()` is supported, and degrades to plain-visible
+ * everywhere else (and under prefers-reduced-motion). No JS, no motion runtime,
+ * so it can never get stuck at opacity 0 for an above-fold or late-hydrating
+ * client child. `delay`/`y`/`amount` are accepted for call-site compatibility;
+ * the scroll timeline supersedes time-based delay (siblings stagger by position).
  */
 export function Reveal({
   children,
-  delay = 0,
-  y = 18,
   className,
-  amount = 0.15,
 }: {
   children: ReactNode
   delay?: number
@@ -21,19 +19,5 @@ export function Reveal({
   className?: string
   amount?: number
 }) {
-  const reduce = useReducedMotion()
-
-  if (reduce) return <div className={className}>{children}</div>
-
-  return (
-    <m.div
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '0px 0px -8% 0px', amount }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay }}
-    >
-      {children}
-    </m.div>
-  )
+  return <div className={`reveal-up${className ? ` ${className}` : ''}`}>{children}</div>
 }

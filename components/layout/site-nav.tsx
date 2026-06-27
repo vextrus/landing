@@ -82,7 +82,7 @@ export function SiteNav() {
             )
           })}
           <Button href="/contact" size="sm" icon="demo">
-            Book a demo
+            Book a call
           </Button>
         </div>
 

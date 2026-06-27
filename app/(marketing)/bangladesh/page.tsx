@@ -47,7 +47,7 @@ const MOAT: {
     icon: 'building-min',
     accent: 'oklch(0.50 0.10 200)',
     title: 'RAJUK, BNBC, and the permit pipeline',
-    body: 'RAJUK (Dhaka), CDA, KDA and RDA approval tracking with FAR calculations; the ECPS online permit system; BNBC 2020 inspection standards; Fire Service NOC support. The 45+ day pipeline is exactly the deadline-driven work the Compliance-Monitor agent checks every day for a permit or NOC about to expire.',
+    body: 'RAJUK (Dhaka), CDA, KDA and RDA approval tracking with FAR calculations; the ECPS online permit system; BNBC 2020 inspection standards; Fire Service NOC support. The multi-week permit pipeline is exactly the deadline-driven work a Compliance-Monitor agent is on the roadmap to watch — flagging a permit or NOC about to expire.',
     pills: [{ label: 'FAR · DAP' }, { label: 'ECPS' }, { label: 'BNBC 2020' }],
   },
   {
@@ -95,8 +95,8 @@ const MOAT: {
     icon: 'globe',
     accent: 'oklch(0.52 0.10 145)',
     title: 'Who actually uses it',
-    body: 'A Bangla interface for field staff, with clear English for bilingual executives. 45 construction and 38 real-estate roles, plus department templates built from how Dhaka and Chittagong firms actually organise themselves — including the combined developer-contractor model.',
-    pills: [{ label: 'বাংলা ইন্টারফেস', bengali: true }, { label: '45 + 38 roles' }],
+    body: 'A Bangla interface for field staff, with clear English for bilingual executives. Construction and real-estate role templates, built from how Dhaka and Chittagong firms actually organise themselves — including the combined developer-contractor model.',
+    pills: [{ label: 'বাংলা ইন্টারফেস', bengali: true }, { label: 'BD role templates' }],
   },
 ]
 
@@ -130,7 +130,7 @@ export default function BangladeshPage() {
           </Reveal>
 
           <Reveal delay={0.08} className="flex justify-center">
-            <BangladeshMap variant="dark" />
+            <BangladeshMap variant="warm" />
           </Reveal>
         </div>
       </Section>
@@ -143,8 +143,8 @@ export default function BangladeshPage() {
           <p className="mt-4 text-[16.5px] leading-relaxed text-ink-soft">
             RAJUK in Dhaka, CDA in Chittagong, KDA in Khulna, RDA in Rajshahi — each with its own
             FAR rules and the ECPS online permit system. The project, document and notification
-            modules track the 45+ day pipeline against BNBC 2020 inspection standards. The
-            Compliance-Monitor agent checks it every day for a permit or NOC about to expire.
+            modules track the multi-week permit pipeline against BNBC 2020 inspection standards — the
+            boundary a Compliance-Monitor agent is on the roadmap to watch for an expiring permit or NOC.
           </p>
         </Reveal>
 
@@ -234,7 +234,7 @@ export default function BangladeshPage() {
         </div>
 
         <Reveal className="mt-9" delay={0.05}>
-          <LinkArrow href="/estimator" color="oklch(0.42 0.12 275)">
+          <LinkArrow href="/proof">
             See how the Estimator turns a drawing into a priced BOQ
           </LinkArrow>
         </Reveal>
@@ -260,9 +260,9 @@ export default function BangladeshPage() {
           </p>
           <div className="mt-9 flex flex-wrap justify-center gap-3.5">
             <Button href="/contact" size="lg" icon="arrow-right" iconRight>
-              Book a demo
+              Book a call
             </Button>
-            <Button href="/engine" size="lg" variant="ghost">
+            <Button href="/system" size="lg" variant="ghost">
               The engine underneath
             </Button>
           </div>

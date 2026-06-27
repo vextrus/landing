@@ -5,8 +5,8 @@ type Tone = 'canvas' | 'raised' | 'deep' | 'warm'
 const toneCls: Record<Tone, string> = {
   canvas: 'bg-canvas text-ink',
   raised: 'bg-raised text-ink',
-  deep: 'bg-deep text-ink',
-  warm: 'bg-warm text-ink-dark', // warm structural light break
+  deep: 'bg-deep text-ink-invert', // the ONE dark voltage band — light ink on dark
+  warm: 'bg-warm text-ink', // warm structural light break (ink is dark on paper)
 }
 
 /** Max-width inner shell — 1200px, fluid horizontal padding. */

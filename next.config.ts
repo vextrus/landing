@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'motion'],
   },
+  // v2 → v3 IA: the engine + workforce surfaces merged into The System / VextrusAI;
+  // /why and /estimator fold into /proof.
+  async redirects() {
+    return [
+      { source: '/workforce', destination: '/ai', permanent: true },
+      { source: '/engine', destination: '/system', permanent: true },
+      { source: '/why', destination: '/proof', permanent: true },
+      { source: '/estimator', destination: '/proof', permanent: true },
+    ]
+  },
 }
 
 export default nextConfig

@@ -1,21 +1,20 @@
 # Vextrus
 
-> Vextrus is an AI-native ERP for Bangladesh construction & real estate — an AI workforce of agents that price drawings, catch cost leakage, and chase cash, writing to your books only when a named person approves.
+> Vextrus is the AI-native ERP for Bangladesh construction & real estate — one system of record, with an AI workforce that does the work on it. The Drawing Estimator ships today; an agent writes to your books only when a named person approves.
 
 ## Pages
 
-- [Home](https://www.vextrus.com/): The category overview — VextrusAI as your AI workforce for construction & real estate, with the 20-module ERP as the engine underneath. Path: /
-- [The Workforce](https://www.vextrus.com/workforce): The 23 agents — 1 shipped flagship (the Drawing Estimator), 13 roadmap agents that elevate everyday work, and 9 advisory agents embedded across the modules. Path: /workforce
-- [Solutions](https://www.vextrus.com/solutions): Outcome-led bundles that map agents and modules to real construction & real-estate workflows. Path: /solutions
-- [The Engine](https://www.vextrus.com/engine): The 20-module ERP foundation the agents run on — finance, projects, procurement, inventory, HR, and more. Path: /engine
-- [Why Vextrus](https://www.vextrus.com/why): The case for an AI-native, approval-gated ERP — agents propose, a named person approves, and only then does anything write to the books (the 4-Eyes mechanism). Path: /why
-- [Bangladesh-Native](https://www.vextrus.com/bangladesh): Built for Bangladesh from the ground up — NBR Mushak VAT, RAJUK approvals, BBS bar-bending standards, the July–June fiscal year, and money in lakh and crore. Path: /bangladesh
-- [The Estimator](https://www.vextrus.com/estimator): The shipped flagship agent — turns construction drawings (DWG) into a Bill of Quantities and Bar Bending Schedule, then into the ERP. Path: /estimator
-- [Contact](https://www.vextrus.com/contact): Book a demo or reach the team. Path: /contact
+- [Home](https://www.vextrus.com/): The category overview — the AI-native ERP for Bangladesh construction & real estate; one system of record with an AI workforce on it, led by the shipped Estimator. Path: /
+- [The System](https://www.vextrus.com/system): The engine — one connected system of record for the full construction and real-estate lifecycle (finance, projects, procurement, sales, people, safety) inside one tenant boundary. An agent is only as real as what it can write to. Path: /system
+- [VextrusAI](https://www.vextrus.com/ai): The AI workforce — the shipped flagship Estimator plus a roster labelled honestly by what each agent can do (Available now / In development / On the roadmap), and the 4-Eyes glass box. Path: /ai
+- [Solutions](https://www.vextrus.com/solutions): Named bundles routed by buyer segment (Developer, Contractor, Hybrid) — each ends one expensive problem end-to-end. Priced to recovered value, never a seat count or a published price. Path: /solutions
+- [Bangladesh-Native](https://www.vextrus.com/bangladesh): Built for Bangladesh from the ground up — NBR Mushak VAT, RAJUK/CDA/KDA/RDA approvals, BBS bar-bending standards, the land-record hierarchy, the July–June fiscal year, and money in lakh and crore. Path: /bangladesh
+- [Proof](https://www.vextrus.com/proof): See it work — the real Estimator output (a drawing becomes a priced BOQ and Bar Bending Schedule, posted on one approval), the tenant-isolation/audit security story, NBR/RAJUK fit, and the honest Now/Next/Later roadmap. Path: /proof
+- [Contact](https://www.vextrus.com/contact): Book a call or reach the team. Bring a structural drawing and we price it on your own project. Path: /contact
 
 ## About
 
-Vextrus is an AI-native, multi-tenant ERP for Bangladesh construction & real estate. The product leads with VextrusAI — an AI workforce of 23 agents (1 shipped flagship: the Drawing Estimator; 13 roadmap agents that elevate everyday work; 9 advisory agents embedded across the modules) — running on a 20-module ERP engine.
+Vextrus is an AI-native, multi-tenant ERP for Bangladesh construction & real estate. The product leads with VextrusAI — an AI workforce running on one connected system of record. One agent ships today (the Drawing Estimator, which turns a structural drawing into a Bill of Quantities and a waste-minimised Bar Bending Schedule). The rest of the workforce is labelled honestly: some in development, some on the roadmap. Only the Estimator is presented as a shipped flagship.
 
 Agents never write to the books on their own. Every write-back runs through a 4-Eyes, approval-gated mechanism: an agent proposes a change via a registered command, and a named person must approve before anything is committed.
 

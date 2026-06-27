@@ -7,7 +7,7 @@ type Status = 'idle' | 'submitting' | 'success' | 'error'
 type Errors = Partial<Record<'name' | 'company' | 'role' | 'email' | 'message' | 'form', string>>
 
 const FIELD =
-  'w-full rounded-[10px] border border-line bg-[oklch(0.14_0.01_270)] px-3.5 py-3 text-sm text-ink transition-[border-color,box-shadow] placeholder:text-[oklch(0.5_0.02_270)] focus:border-accent focus:outline-none focus:ring-[3px] focus:ring-[oklch(0.72_0.14_44/0.18)] aria-[invalid=true]:border-[var(--color-overdue)]'
+  'w-full rounded-[10px] border border-line-strong bg-[var(--color-paper)] px-3.5 py-3 text-sm text-ink transition-[border-color,box-shadow] placeholder:text-ink-dim focus:border-accent focus:outline-none focus:ring-[3px] focus:ring-[oklch(0.62_0.13_50/0.2)] aria-[invalid=true]:border-[var(--color-overdue)]'
 
 function Label({ htmlFor, children }: { htmlFor: string; children: string }) {
   return (
@@ -94,8 +94,8 @@ export function DemoForm() {
 
   return (
     <form
-      className="glass-card p-7 sm:p-8"
-      style={{ borderRadius: 18, boxShadow: '0 40px 80px -30px rgba(0,0,0,0.7)' }}
+      className="draft-cut p-7 sm:p-8"
+      style={{ borderRadius: 16, background: 'var(--color-raised)' }}
       onSubmit={onSubmit}
       noValidate
       aria-describedby={errors.form ? 'form-error' : undefined}

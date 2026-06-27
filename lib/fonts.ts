@@ -1,44 +1,22 @@
-import {
-  Instrument_Serif,
-  Syne,
-  Outfit,
-  Plus_Jakarta_Sans,
-  JetBrains_Mono,
-  Noto_Sans_Bengali,
-} from 'next/font/google'
+import { Archivo, Plus_Jakarta_Sans, JetBrains_Mono, Noto_Sans_Bengali } from 'next/font/google'
 
-// next/font writes each family to a `--ff-*` CSS variable on <html>.
-// The Tailwind v4 @theme (globals.css) maps `font-*` utilities onto these,
-// kept in a separate namespace so they never collide with Tailwind's --font-* keys.
+// v3 — three type roles (spec §6.2): a distinctive technical DISPLAY grotesque
+// (deliberately NOT an editorial serif — that's the #1 AI-cluster default), a
+// humanist BODY sans, and JetBrains MONO as the annotation/data voice. Bengali
+// for the native register. next/font writes each to a `--ff-*` var on <html>;
+// the Tailwind @theme maps `--font-*` onto these.
 
-// Editorial hero display — Instrument Serif (400, italic for emphasis spans)
-const instrumentSerif = Instrument_Serif({
-  weight: '400',
-  style: ['normal', 'italic'],
+// Display — Archivo: a grotesque with engineering/architectural character; tight
+// and large in the hero, the technical-authority voice without the serif cliché.
+const archivo = Archivo({
   subsets: ['latin'],
   display: 'swap',
-  variable: '--ff-serif',
-})
-
-// Geometric section headings — Syne 400–800
-const syne = Syne({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--ff-heading',
-  weight: ['400', '500', '600', '700', '800'],
+  variable: '--ff-display',
+  weight: ['400', '500', '600', '700', '800', '900'],
   fallback: ['system-ui', 'sans-serif'],
 })
 
-// The lowercase "vextrus" wordmark — Outfit 800
-const outfit = Outfit({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--ff-wordmark',
-  weight: ['400', '500', '600', '700', '800'],
-  fallback: ['Avenir Next', 'Segoe UI', 'sans-serif'],
-})
-
-// Body — Plus Jakarta Sans
+// Body — Plus Jakarta Sans (clean humanist; 17px/1.5, skip the ramp middle)
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
@@ -46,7 +24,8 @@ const plusJakarta = Plus_Jakarta_Sans({
   fallback: ['system-ui', 'sans-serif'],
 })
 
-// Data / figures — JetBrains Mono (tabular numerals)
+// Mono / technical — JetBrains Mono: annotation voice only (dimensions, datums,
+// sheet numbers, money/tabular-nums, agent metadata, eyebrows).
 const jetbrainsMono = JetBrains_Mono({
   subsets: ['latin'],
   display: 'swap',
@@ -63,11 +42,9 @@ const notoBengali = Noto_Sans_Bengali({
   fallback: ['Hind Siliguri', 'sans-serif'],
 })
 
-// All six families, ready to spread onto <html className>.
+// All four families, ready to spread onto <html className>.
 export const fontVariables = [
-  instrumentSerif.variable,
-  syne.variable,
-  outfit.variable,
+  archivo.variable,
   plusJakarta.variable,
   jetbrainsMono.variable,
   notoBengali.variable,

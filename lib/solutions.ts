@@ -42,6 +42,8 @@ export const solutions: SolutionDef[] = [
       'Over-billing, duplicate invoices, and off-budget spend caught before payment — not at audit; projects flagged for overrun months early, with the cause named. The bundle that speaks straight to a control-minded owner’s first fear.',
     expand:
       'The natural second bundle after the Estimator land — or an alternative first land for a firm whose pain is spend control. Proves recovered taka fast, earning the right to cross-sell.',
+    roadmapNote:
+      'The AP/GL engine three-way-matches and flags anomalies today; the Leakage Detector agent is on the near-term roadmap. Sold as in development on a working boundary, never as finished automation.',
   },
   {
     id: 'bill-to-cash',
@@ -56,6 +58,8 @@ export const solutions: SolutionDef[] = [
       'The team learns which overdue accounts will pay and which need escalation, and acts on the ones that move the cash; credit exposure is scored before more is extended; sales effort concentrates on the leads that close. Cash arrives sooner without a relationship-dependent chase.',
     expand:
       'The receivables-side expansion into an account already trusting the platform on the cost side. Strongest for developers and hybrid firms carrying instalment and retention balances.',
+    roadmapNote:
+      'AR runs progress billing, ageing and logged collections today; the Collection Predictor and Credit-Risk agents are in development. Sold honestly as a near roadmap on a live receivables engine.',
   },
   {
     id: 'compliance-autopilot',
@@ -83,3 +87,58 @@ export const customBuild = {
   expand:
     'The top of the expansion ladder, reserved for firms — especially hybrid developer-contractors — whose scale and discipline justify an agent tuned to their exact workflow.',
 } as const
+
+// `/solutions` routes by BUYER (the job axis); modules live under `/system` (the
+// object axis). Each segment re-narrates the same system in that buyer's language.
+export type SegmentId = 'developer' | 'contractor' | 'hybrid'
+
+export interface SegmentDef {
+  id: SegmentId
+  label: string
+  who: string
+  headline: string
+  pains: string[]
+  lead: string[] // solution ids that land first for this buyer
+}
+
+export const segments: SegmentDef[] = [
+  {
+    id: 'developer',
+    label: 'Developer',
+    who: 'Real-estate developers',
+    headline: 'Price the land right, then get the cash in.',
+    pains: [
+      'estimates that take a week and get re-typed into the books',
+      'cash stuck in instalments and IPC retention',
+      'leads worked on gut feel, not on who will actually buy',
+    ],
+    lead: ['estimator-to-erp', 'bill-to-cash'],
+  },
+  {
+    id: 'contractor',
+    label: 'Contractor',
+    who: 'Construction contractors',
+    headline: 'Win the tender on the right number, keep the margin.',
+    pains: [
+      'tender BOQs priced by hand under deadline',
+      'money leaking in procurement before anyone sees it',
+      'subcontractor RA bills and retention tracked off-system',
+    ],
+    lead: ['estimator-to-erp', 'leakage-shield'],
+  },
+  {
+    id: 'hybrid',
+    label: 'Hybrid',
+    who: 'Developer + government contractor',
+    headline: 'One system for both sides of the business.',
+    pains: [
+      'developer cash flow and contractor cost control in two different tools',
+      'government-tender compliance on top of NBR and RAJUK',
+      'no single source of truth across projects and the books',
+    ],
+    lead: ['estimator-to-erp', 'leakage-shield', 'bill-to-cash'],
+  },
+]
+
+export const segmentById = (id: string) => segments.find((s) => s.id === id)
+export const solutionById = (id: string) => solutions.find((s) => s.id === id)

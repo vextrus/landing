@@ -4,7 +4,7 @@
   "site": {
     "name": "Vextrus",
     "url": "https://www.vextrus.com",
-    "purpose": "Marketing site for VextrusAI — an AI-native ERP for Bangladesh construction & real estate, led by an AI workforce of agents running on a 20-module engine.",
+    "purpose": "Marketing site for Vextrus — the AI-native ERP for Bangladesh construction & real estate; one system of record with an AI workforce on it, led by the shipped Drawing Estimator.",
     "language": "en"
   },
   "product": {
@@ -12,7 +12,7 @@
     "legalName": "Vextrus Limited",
     "category": "AI-native ERP",
     "industry": "construction & real estate, Bangladesh",
-    "description": "An AI-native, multi-tenant ERP for Bangladesh construction & real estate. VextrusAI is an AI workforce of 23 agents (1 shipped flagship — the Drawing Estimator; 13 roadmap agents; 9 advisory agents) running on a 20-module ERP engine. Agents write to the books only through a 4-Eyes, approval-gated mechanism: an agent proposes a change via a registered command, and a named person must approve before it is committed.",
+    "description": "An AI-native, multi-tenant ERP for Bangladesh construction & real estate. VextrusAI is an AI workforce running on one connected system of record. One agent ships today — the Drawing Estimator, which turns a structural drawing into a Bill of Quantities and a waste-minimised Bar Bending Schedule. The rest of the workforce is labelled honestly: some in development, some on the roadmap. Agents write to the books only through a 4-Eyes, approval-gated mechanism: an agent proposes a change via a registered command, and a named person must approve before it is committed.",
     "bangladeshNative": [
       "NBR Mushak (VAT)",
       "RAJUK approvals",
@@ -23,12 +23,11 @@
   },
   "pages": [
     { "title": "Home", "path": "/" },
-    { "title": "The Workforce", "path": "/workforce" },
+    { "title": "The System", "path": "/system" },
+    { "title": "VextrusAI", "path": "/ai" },
     { "title": "Solutions", "path": "/solutions" },
-    { "title": "The Engine", "path": "/engine" },
-    { "title": "Why Vextrus", "path": "/why" },
     { "title": "Bangladesh-Native", "path": "/bangladesh" },
-    { "title": "The Estimator", "path": "/estimator" },
+    { "title": "Proof", "path": "/proof" },
     { "title": "Contact", "path": "/contact" }
   ],
   "contact": {

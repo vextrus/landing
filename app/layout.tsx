@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0c0c12',
+  themeColor: '#f4f1ea',
   width: 'device-width',
   initialScale: 1,
 }
@@ -74,7 +74,7 @@ const softwareJsonLd = {
   operatingSystem: 'Web',
   url: siteConfig.url,
   description:
-    'An AI-native, multi-tenant ERP for Bangladesh construction & real estate. VextrusAI is an AI workforce of agents — led by a shipped Drawing Estimator that turns drawings into a Bill of Quantities and Bar Bending Schedule — running on a 20-module engine. Agents write to the books only through a 4-Eyes, approval-gated mechanism: an agent proposes a change via a registered command, and a named person approves before it is committed. Built for Bangladesh: NBR Mushak, RAJUK, BBS, the July–June fiscal year, and money in lakh and crore.',
+    'An AI-native, multi-tenant ERP for Bangladesh construction & real estate. VextrusAI is an AI workforce of agents — led by a shipped Drawing Estimator that turns drawings into a Bill of Quantities and Bar Bending Schedule — running on one connected system of record. Agents write to the books only through a 4-Eyes, approval-gated mechanism: an agent proposes a change via a registered command, and a named person approves before it is committed. Built for Bangladesh: NBR Mushak, RAJUK, BBS, the July–June fiscal year, and money in lakh and crore.',
   publisher: {
     '@type': 'Organization',
     name: siteConfig.legalName,

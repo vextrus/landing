@@ -1,117 +1,135 @@
 @import 'tailwindcss';
 
 /* ════════════════════════════════════════════════════════════════════
-   Vextrus Marketing — "Structural Intelligence"
-   Tailwind v4 CSS-first theme. Tokens are verbatim from design-tokens/.
-   Colors stay in OKLCh (perceptually uniform). Dark-dominant, with warm
-   "structural" light section breaks.
+   Vextrus Marketing v3 — "Show the real product" / engineering sheet.
+   Tailwind v4 CSS-first theme, OKLCh throughout. WARM-PAPER canvas
+   (measured-drawing register) with ONE dark "voltage band". The depth
+   language is a 4-token drafting LINE-WEIGHT system — not shadow cards,
+   not glassmorphism. Status hue-shifts off copper; no Tailwind RGB.
+   Token KEYS are preserved from v2 so components keep building; only the
+   VALUES flip to warm paper. New tokens are added below the aliases.
    ════════════════════════════════════════════════════════════════════ */
 
 @theme {
-  /* ── Surfaces (dark canvas + warm light breaks) ── */
-  --color-canvas: oklch(0.12 0.01 270);
-  --color-raised: oklch(0.16 0.012 270);
-  --color-deep: oklch(0.09 0.008 270);
-  --color-warm: oklch(0.96 0.008 70);
-  --color-warm-raised: oklch(0.99 0.004 70);
+  /* ── Warm-paper canvas + the single dark voltage band ── */
+  --color-paper: oklch(0.971 0.006 83); /* warm off-white — the sheet */
+  --color-canvas: oklch(0.971 0.006 83); /* default page bg (= paper) */
+  --color-raised: oklch(0.992 0.004 83); /* near-white raise (cards) */
+  --color-warm: oklch(0.955 0.009 78); /* faint warm alt band */
+  --color-deep: oklch(0.181 0.013 256); /* THE dark voltage band (cyanotype-ink) */
 
-  /* ── Brand axis ── */
-  --color-accent: oklch(0.72 0.15 44); /* warm copper — the AI cue */
-  --color-accent-hi: oklch(0.78 0.16 44);
-  --color-indigo: oklch(0.55 0.14 275); /* deep indigo — structure */
+  /* ── Brand axis — copper, rationed to one moment per viewport ── */
+  --color-copper: oklch(0.62 0.13 50);
+  --color-accent: oklch(0.62 0.13 50); /* alias: components use text-accent */
+  --color-accent-hi: oklch(0.68 0.14 50);
+  --color-copper-witness: oklch(0.62 0.13 50 / 0.25);
+  --color-indigo: oklch(0.5 0.1 256); /* structural deep — sparing */
 
-  /* ── Text ── */
-  --color-ink: oklch(0.93 0.005 70);
-  --color-ink-soft: oklch(0.65 0.01 70);
-  --color-ink-dim: oklch(0.56 0.01 70); /* lifted to ~4.5:1 on canvas (AA for body copy) */
-  --color-ink-dark: oklch(0.18 0.02 70);
-  --color-ink-dark-soft: oklch(0.45 0.02 70);
+  /* ── Ink (dark on paper) + the inverted ink for the dark band ── */
+  --color-ink: oklch(0.235 0.012 70); /* near-black — body + headings */
+  --color-ink-soft: oklch(0.42 0.012 70); /* secondary */
+  --color-ink-dim: oklch(0.52 0.012 70); /* tertiary — AA on paper */
+  --color-ink-invert: oklch(0.965 0.005 83); /* light ink on the dark band */
+  --color-ink-invert-soft: oklch(0.78 0.01 83);
+  /* v2 warm-section aliases → now just the default dark ink */
+  --color-ink-dark: oklch(0.235 0.012 70);
+  --color-ink-dark-soft: oklch(0.45 0.012 70);
 
-  /* ── Semantic + financial (colorblind-safe blue/amber axis) ── */
-  --color-success: oklch(0.62 0.14 155);
-  --color-credit: oklch(0.66 0.13 245);
-  --color-debit: oklch(0.70 0.13 49);
-  --color-overdue: oklch(0.62 0.18 25);
-  --color-warning: oklch(0.72 0.14 75);
+  /* ── Status — derived by hue-shifting copper at ~constant L (no RGB) ── */
+  --color-success: oklch(0.58 0.11 150);
+  --color-credit: oklch(0.55 0.1 235);
+  --color-debit: oklch(0.6 0.13 49);
+  --color-overdue: oklch(0.58 0.16 28);
+  --color-warning: oklch(0.66 0.13 72);
 
-  /* ── Hairlines ── */
-  --color-line: oklch(1 0 0 / 0.08);
-  --color-line-strong: oklch(1 0 0 / 0.14);
-  --color-line-warm: oklch(0.85 0.008 70);
+  /* ── Drafting line-weight system (semantic depth, replaces shadows) ── */
+  --line-cut: oklch(0.62 0.13 50); /* active boundary — copper 1.5–2px */
+  --line-object: oklch(0.235 0.012 70); /* object edge — ink 1px */
+  --line-hidden: oklch(0.235 0.012 70 / 0.28); /* hidden — dashed muted */
+  --line-datum: oklch(0.62 0.13 50 / 0.45); /* datum — 0.5px dash-dot */
+
+  /* ── Hairlines (ink @ low alpha — no drop shadows) ── */
+  --color-line: oklch(0.235 0.012 70 / 0.1);
+  --color-line-strong: oklch(0.235 0.012 70 / 0.16);
+  --color-line-warm: oklch(0.235 0.012 70 / 0.12);
 
   /* ── Fonts (resolve to the --ff-* vars next/font sets on <html>) ── */
-  --font-serif: var(--ff-serif), Georgia, serif; /* Instrument Serif — editorial display */
-  --font-heading: var(--ff-heading), system-ui, sans-serif; /* Syne — section headings */
-  --font-wordmark: var(--ff-wordmark), 'Avenir Next', sans-serif; /* Outfit — vextrus wordmark */
+  --font-display: var(--ff-display), 'Archivo', system-ui, sans-serif; /* Archivo — technical grotesque */
+  --font-serif: var(--ff-display), system-ui, sans-serif; /* alias → display (no editorial-serif cluster) */
+  --font-heading: var(--ff-display), system-ui, sans-serif; /* alias → display */
+  --font-wordmark: var(--ff-display), system-ui, sans-serif; /* alias → display */
   --font-body: var(--ff-body), system-ui, sans-serif; /* Plus Jakarta Sans */
   --font-mono: var(--ff-mono), 'JetBrains Mono', 'Consolas', monospace;
   --font-bengali: var(--ff-bengali), 'Hind Siliguri', sans-serif;
 
-  /* ── Radii ── */
-  --radius-card: 16px;
-  --radius-tile: 16px;
-  --radius-input: 11px;
+  /* ── Radii (restrained — drafting reads as right-angled) ── */
+  --radius-card: 14px;
+  --radius-tile: 12px;
+  --radius-input: 10px;
   --radius-pill: 9999px;
 
-  /* ── Easings ("The Calm System") → ease-expo / ease-quart / ease-spring ── */
+  /* ── Motion (≤3 signature moves; nothing idles; initial viewport ≤800ms) ── */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-enter: cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-exit: cubic-bezier(0.32, 0, 0.67, 0);
+  --ease-hero: cubic-bezier(0.16, 1, 0.3, 1);
+  /* v2 easing aliases */
   --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-quart: cubic-bezier(0.25, 1, 0.5, 1);
   --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --dur-micro: 120ms;
+  --dur-base: 240ms;
+  --dur-state: 300ms;
+  --dur-emph: 450ms;
+  --dur-page: 560ms;
 
-  /* ── Fluid type scale (calibrated to the mockup's desktop sizes) ── */
-  --text-hero: clamp(2.5rem, 1.7rem + 3.6vw, 3.75rem);
-  --text-section: clamp(2rem, 1.45rem + 2.4vw, 2.875rem);
+  /* ── Fluid type scale (hero sized to the two-column identity width) ── */
+  --text-hero: clamp(2.3rem, 1.5rem + 3.2vw, 3.15rem);
+  --text-section: clamp(2rem, 1.45rem + 2.4vw, 3rem);
   --text-display: clamp(2.1rem, 1.4rem + 3vw, 3.25rem);
   --text-stat: clamp(1.75rem, 1.3rem + 2vw, 2.5rem);
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   .theme-landing — raw tokens components reference directly: copper glow,
-   module "Atmosphere" accents, gradients, layout width. Scoped so the
-   marketing surface can be opted into without disturbing other roots.
+   .theme-landing — raw tokens components reference directly. Now LIGHT.
    ════════════════════════════════════════════════════════════════════ */
 .theme-landing {
-  color-scheme: dark;
+  color-scheme: light;
 
-  --accent-glow: oklch(0.72 0.15 44 / 0.25);
-  --indigo-glow: oklch(0.55 0.14 275 / 0.2);
+  --accent-glow: oklch(0.62 0.13 50 / 0.16);
+  --indigo-glow: oklch(0.5 0.1 256 / 0.12);
 
   --maxw: 1200px;
   --nav-h: 66px;
 
-  /* Module accents — "the Atmosphere" (dark-mode values from colors.css) */
-  --mod-gl: oklch(0.68 0.09 245);
-  --mod-tax: oklch(0.65 0.1 310);
-  --mod-ap: oklch(0.68 0.1 49);
-  --mod-ar: oklch(0.68 0.1 170);
-  --mod-foundation: oklch(0.68 0.09 140);
-  --mod-planning: oklch(0.66 0.1 200);
-  --mod-costing: oklch(0.7 0.1 95);
-  --mod-execution: oklch(0.66 0.1 330);
-  --mod-procurement: oklch(0.69 0.1 30);
-  --mod-inventory: oklch(0.68 0.09 115);
-  --mod-subequip: oklch(0.71 0.1 55);
-  --mod-realestate: oklch(0.66 0.1 260);
-  --mod-hr: oklch(0.67 0.1 190);
-  --mod-safety: oklch(0.66 0.08 15);
-  --mod-identity: oklch(0.65 0.1 275);
-  --mod-tenancy: oklch(0.65 0.1 285);
-  --mod-org: oklch(0.66 0.09 150);
-  --mod-workflow: oklch(0.66 0.1 215);
-  --mod-notification: oklch(0.7 0.11 70);
-  --mod-ai: oklch(0.68 0.11 285);
-  --mod-project: oklch(0.68 0.09 140);
+  /* Module accents — muted ink-leaning hues on paper (the engine groups) */
+  --mod-gl: oklch(0.5 0.08 245);
+  --mod-tax: oklch(0.5 0.09 310);
+  --mod-ap: oklch(0.55 0.1 49);
+  --mod-ar: oklch(0.5 0.08 170);
+  --mod-foundation: oklch(0.5 0.08 140);
+  --mod-planning: oklch(0.5 0.08 205);
+  --mod-costing: oklch(0.56 0.1 80);
+  --mod-execution: oklch(0.52 0.09 330);
+  --mod-procurement: oklch(0.56 0.1 32);
+  --mod-inventory: oklch(0.52 0.08 118);
+  --mod-subequip: oklch(0.56 0.1 56);
+  --mod-realestate: oklch(0.5 0.09 262);
+  --mod-hr: oklch(0.5 0.08 192);
+  --mod-safety: oklch(0.55 0.11 22);
+  --mod-identity: oklch(0.5 0.09 275);
+  --mod-tenancy: oklch(0.5 0.09 286);
+  --mod-org: oklch(0.5 0.08 150);
+  --mod-workflow: oklch(0.5 0.09 215);
+  --mod-notification: oklch(0.56 0.1 70);
+  --mod-ai: oklch(0.55 0.11 50);
+  --mod-project: oklch(0.5 0.08 140);
 
-  /* Gradients */
-  --grad-text: linear-gradient(135deg, oklch(0.74 0.13 275), oklch(0.8 0.15 44));
-  --grad-brand: linear-gradient(
-    135deg,
-    oklch(0.5 0.14 275) 0%,
-    oklch(0.6 0.12 275) 35%,
-    oklch(0.68 0.14 44) 100%
-  );
+  /* Gradients — copper-leaning, used sparingly */
+  --grad-text: linear-gradient(96deg, oklch(0.55 0.12 45), oklch(0.62 0.13 55));
+  --grad-brand: linear-gradient(135deg, oklch(0.5 0.1 256) 0%, oklch(0.62 0.13 50) 100%);
 
-  background: var(--color-canvas);
+  background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-body);
 }
@@ -136,13 +154,13 @@
     font-family: var(--font-body);
   }
   ::selection {
-    background: oklch(0.72 0.15 44 / 0.3);
-    color: oklch(0.98 0.005 70);
+    background: oklch(0.62 0.13 50 / 0.2);
+    color: oklch(0.2 0.012 70);
   }
-  /* Keyboard focus — 3px ring at accent/35% (a11y floor) */
+  /* Keyboard focus — 3px copper ring (a11y floor) */
   :where(a, button, input, textarea, select, [tabindex]):focus-visible {
     outline: none;
-    box-shadow: 0 0 0 3px oklch(from var(--color-accent) l c h / 0.35);
+    box-shadow: 0 0 0 3px oklch(from var(--color-accent) l c h / 0.4);
     border-radius: 6px;
   }
   /* Tabular figures everywhere mono is used for data */
@@ -152,37 +170,44 @@
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   Typography helpers — keep section rhythm consistent across pages.
+   Typography — display = Archivo (technical grotesque), tight + large.
    ════════════════════════════════════════════════════════════════════ */
 @layer components {
   .t-overline {
-    font-family: var(--font-heading);
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-weight: 500;
     font-size: 0.719rem; /* 11.5px */
-    letter-spacing: 0.24em;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--color-accent);
     margin: 0;
   }
   .t-hero {
-    font-family: var(--font-heading);
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: var(--text-hero);
-    line-height: 1.03;
+    line-height: 1.0;
     letter-spacing: -0.03em;
   }
+  .t-hero-kinetic {
+    font-family: var(--font-display);
+    font-weight: 760;
+    font-size: var(--text-hero);
+    line-height: 1.0;
+    letter-spacing: -0.032em;
+  }
   .t-section {
-    font-family: var(--font-heading);
-    font-weight: 700;
+    font-family: var(--font-display);
+    font-weight: 680;
     font-size: var(--text-section);
-    line-height: 1.06;
+    line-height: 1.04;
     letter-spacing: -0.025em;
   }
   .t-display {
-    font-family: var(--font-serif);
-    font-weight: 400;
+    font-family: var(--font-display);
+    font-weight: 600;
     font-size: var(--text-display);
-    line-height: 1.05;
+    line-height: 1.04;
     letter-spacing: -0.02em;
   }
   .text-gradient {
@@ -195,57 +220,91 @@
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   Surfaces — glass, atmosphere, structural grid
+   Surfaces — line-weight drafting system (replaces glass + shadow cards)
    ════════════════════════════════════════════════════════════════════ */
 @layer components {
-  /* Sticky nav glass — dimmer than content glass (Linear/Apple principle) */
+  /* Sticky nav — paper with a hairline, no heavy glass */
   .glass-nav {
-    background: oklch(0.1 0.01 270 / 0.72);
-    -webkit-backdrop-filter: blur(18px) saturate(150%);
-    backdrop-filter: blur(18px) saturate(150%);
+    background: oklch(0.971 0.006 83 / 0.82);
+    -webkit-backdrop-filter: blur(14px) saturate(120%);
+    backdrop-filter: blur(14px) saturate(120%);
     border-bottom: 1px solid var(--color-line);
   }
-  /* Edge-lit content glass card */
+  /* A "card" is now a hairline-ruled object box on paper — no drop shadow */
   .glass-card {
-    background: oklch(0.185 0.012 270 / 0.94);
-    -webkit-backdrop-filter: blur(20px) saturate(160%);
-    backdrop-filter: blur(20px) saturate(160%);
+    background: var(--color-raised);
     border: 1px solid var(--color-line-strong);
-    border-top-color: oklch(1 0 0 / 0.28);
   }
 
-  /* Atmospheric canvas — indigo top-left + copper bottom-right orbs */
-  .bg-atmosphere {
-    background:
-      radial-gradient(ellipse 56% 50% at 84% 20%, oklch(0.55 0.1 275 / 0.22), transparent),
-      radial-gradient(ellipse 46% 42% at 10% 94%, oklch(0.55 0.1 44 / 0.14), transparent);
+  /* Drafting devices ─────────────────────────────────────────────── */
+  /* Object box — ink hairline; the default container edge */
+  .draft-object {
+    border: 1px solid var(--color-line-strong);
+    background: var(--color-raised);
   }
-  .bg-atmosphere-soft {
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 30%, oklch(0.55 0.1 275 / 0.12), transparent),
-      radial-gradient(ellipse 60% 50% at 80% 70%, oklch(0.55 0.1 44 / 0.08), transparent);
+  /* Cut box — the active/important boundary is the copper cut line */
+  .draft-cut {
+    border: 1.5px solid var(--line-cut);
   }
-  /* Faint structural blueprint grid */
+  /* Registration crosshair + corner crop ticks live as ::before/::after on
+     .draft-frame; faint, ≤4% ink, never four weights in one viewport. */
+  .draft-frame {
+    position: relative;
+  }
+  .draft-frame::before,
+  .draft-frame::after {
+    content: '';
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    border-color: var(--color-copper-witness);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .draft-frame::before {
+    top: -1px;
+    left: -1px;
+    border-width: 1px 0 0 1px;
+  }
+  .draft-frame::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 1px 1px 0;
+  }
+  /* Title-block strip — VEXTRUS · SHEET 03/12 · REV. 2026.06 */
+  .title-block {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+  }
+
+  /* Faint structural sheet grid (≤4% ink, 48px module) */
   .bg-grid {
     background-image:
-      repeating-linear-gradient(0deg, oklch(1 0 0 / 0.03) 0 1px, transparent 1px 48px),
-      repeating-linear-gradient(90deg, oklch(1 0 0 / 0.03) 0 1px, transparent 1px 48px);
+      repeating-linear-gradient(0deg, oklch(0.235 0.012 70 / 0.035) 0 1px, transparent 1px 48px),
+      repeating-linear-gradient(90deg, oklch(0.235 0.012 70 / 0.035) 0 1px, transparent 1px 48px);
+  }
+  /* Atmosphere — neutralized to a faint copper wash on paper (no dark orbs) */
+  .bg-atmosphere {
+    background: radial-gradient(ellipse 60% 50% at 88% 8%, oklch(0.62 0.13 50 / 0.05), transparent);
+  }
+  .bg-atmosphere-soft {
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.62 0.13 50 / 0.035), transparent);
   }
 
-  /* Recurring interactive tile — lift + accent border/glow on hover.
-     Drive the colour per card with `style={{ '--tile-accent': accent }}`. */
+  /* Interactive tile — lift + copper cut-line on hover (no glow card) */
   .vxtile {
     transition:
-      transform 0.3s var(--ease-quart),
-      border-color 0.3s,
-      box-shadow 0.3s,
-      background 0.3s;
+      transform 0.28s var(--ease-standard),
+      border-color 0.28s,
+      background 0.28s;
   }
   @media (hover: hover) and (prefers-reduced-motion: no-preference) {
     .vxtile:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
       border-color: var(--tile-accent, var(--color-accent));
-      box-shadow: 0 0 38px -10px var(--tile-accent, var(--color-accent));
     }
     .vxtile:hover .vxtile-ic {
       color: var(--tile-accent, var(--color-accent));
@@ -259,15 +318,19 @@
     mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
   }
 
-  /* Accessibility: drop transparency when the user asks for it */
+  /* The one dark voltage band: invert ink inside any .band-dark / bg-deep */
+  .bg-deep,
+  .band-dark {
+    color: var(--color-ink-invert);
+  }
+  .bg-deep .t-overline,
+  .band-dark .t-overline {
+    color: var(--color-accent-hi);
+  }
+
   @media (prefers-reduced-transparency: reduce), (prefers-contrast: more) {
     .glass-nav {
-      background: oklch(0.1 0.01 270);
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
-    }
-    .glass-card {
-      background: oklch(0.18 0.012 270);
+      background: var(--color-paper);
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
     }
@@ -275,65 +338,11 @@
 }
 
 /* ════════════════════════════════════════════════════════════════════
-   Keyframes — animation only marks state changes ("The Calm System")
+   Keyframes — animation marks state changes only ("The Calm System")
    ════════════════════════════════════════════════════════════════════ */
-@keyframes vx-scan {
-  0% {
-    transform: translateY(0);
-    opacity: 0;
-  }
-  8% {
-    opacity: 1;
-  }
-  92% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(168px);
-    opacity: 0;
-  }
-}
-@keyframes vx-float {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-9px);
-  }
-}
-@keyframes vx-pulse {
-  0%,
-  100% {
-    opacity: 0.45;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.3);
-  }
-}
-@keyframes vx-blink {
-  0%,
-  100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.3;
-  }
-}
-@keyframes vx-gauge {
-  from {
-    stroke-dashoffset: 240;
-  }
-}
-@keyframes vx-twinkle {
-  0%,
-  100% {
-    opacity: 0.35;
-  }
-  50% {
-    opacity: 1;
+@keyframes vx-draw {
+  to {
+    stroke-dashoffset: 0;
   }
 }
 @keyframes vx-marquee {
@@ -344,18 +353,19 @@
     transform: translateX(-50%);
   }
 }
-@keyframes vx-spin {
+@keyframes vx-reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: none;
   }
 }
-@keyframes vx-breathe {
-  0%,
-  100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
+@keyframes vx-progress {
+  to {
+    transform: scaleX(1);
   }
 }
 
@@ -373,9 +383,34 @@
     }
   }
 }
-@keyframes vx-progress {
-  to {
-    transform: scaleX(1);
+
+/* ── Reveal-up primitive: visible by default; only @supports animates ── */
+@layer components {
+  .reveal-up {
+    opacity: 1;
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal-up {
+        animation: vx-reveal-up linear both;
+        animation-timeline: view();
+        animation-range: entry 0% cover 26%;
+      }
+    }
+  }
+
+  /* Matrix cell states (status off copper hue-shift, AA on paper) */
+  .matrix-cell--full {
+    color: var(--color-success);
+    background: oklch(0.58 0.11 150 / 0.1);
+  }
+  .matrix-cell--partial {
+    color: var(--color-warning);
+    background: oklch(0.66 0.13 72 / 0.1);
+  }
+  .matrix-cell--none {
+    color: var(--color-ink-dim);
+    background: oklch(0.235 0.012 70 / 0.04);
   }
 }
 
@@ -390,32 +425,3 @@
     scroll-behavior: auto !important;
   }
 }
-
-/* ════════ v2 — kinetic type, scroll-driven reveals, matrix, shader fallback ════════ */
-@layer components {
-  /* Hero headline: one kinetic moment — letters rise + weight settles, once. */
-  .t-hero-kinetic { font-family: var(--font-heading); font-weight: 760; font-size: var(--text-hero);
-    line-height: 1.02; letter-spacing: -0.035em; }
-  @media (prefers-reduced-motion: no-preference) {
-    @supports (animation-timeline: view()) {
-      .reveal-up { animation: vx-reveal-up linear both; animation-timeline: view();
-        animation-range: entry 0% cover 28%; }
-    }
-  }
-  /* Static fallback: visible by default; only the @supports block animates it. */
-  .reveal-up { opacity: 1; }
-
-  /* 5×5 matrix cell states (colorblind-safe). */
-  .matrix-cell--full { color: var(--color-success); background: oklch(0.62 0.14 155 / 0.12); }
-  .matrix-cell--partial { color: var(--color-warning); background: oklch(0.72 0.14 75 / 0.10); }
-  .matrix-cell--none { color: var(--color-ink-dim); background: oklch(1 0 0 / 0.02); }
-
-  /* Hero shader fallback = SSR/LCP paint + reduced-motion paint. */
-  .shader-fallback {
-    background:
-      radial-gradient(ellipse 60% 55% at 78% 18%, oklch(0.55 0.12 275 / 0.30), transparent),
-      radial-gradient(ellipse 50% 45% at 12% 92%, oklch(0.62 0.14 44 / 0.18), transparent),
-      var(--color-canvas);
-  }
-}
-@keyframes vx-reveal-up { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }

@@ -19,25 +19,6 @@ export const DEPARTMENTS = [
   { id: 'hr', label: 'People' },
 ] as const satisfies readonly { id: Department; label: string }[]
 
-// Confidence-meter data (kept in a server-safe module so it can be imported by
-// server components — values from 'use client' modules become client refs).
-export interface ConfidenceFactor {
-  name: string
-  score: number // 0–1
-  weight: number // 0–1
-}
-
-// The home/keystone default — the Bank Reconciler NPSB draft (master spec 2.6).
-export const npsbConfidence: { score: number; sentence: string; factors: ConfidenceFactor[] } = {
-  score: 93.4,
-  sentence: 'Strong signals — safe to apply with a quick glance.',
-  factors: [
-    { name: 'Vendor & amount matched to PO', score: 0.92, weight: 0.85 },
-    { name: 'GL account from posting history', score: 0.84, weight: 0.6 },
-    { name: 'Charge pattern recognised (NPSB)', score: 0.71, weight: 0.45 },
-  ],
-}
-
 export interface AgentDef {
   id: string
   name: string
@@ -51,12 +32,16 @@ export interface AgentDef {
   writesTo: string | null // human module label it posts to, or null for advisory (embedded)
 }
 
+// `publicLabel` = the customer-facing 3-tier vocabulary (spec §4). Use this in
+// copy, never the internal `label`/`count` (counts only inside a real captured
+// screen). The asymmetric roster IS the honesty: one shipped, the rest labelled.
 export const tierMeta: Record<
   Tier,
-  { label: string; count: number; accent: string; blurb: string }
+  { label: string; publicLabel: string; count: number; accent: string; blurb: string }
 > = {
   flagship: {
     label: 'Flagship',
+    publicLabel: 'Available now',
     count: 1,
     accent: 'var(--color-accent)',
     blurb:
@@ -64,6 +49,7 @@ export const tierMeta: Record<
   },
   elevatable: {
     label: 'Elevatable',
+    publicLabel: 'In development',
     count: 13,
     accent: 'var(--mod-ai)',
     blurb:
@@ -71,6 +57,7 @@ export const tierMeta: Record<
   },
   embedded: {
     label: 'Embedded',
+    publicLabel: 'On the roadmap',
     count: 9,
     accent: 'var(--color-credit)',
     blurb:
